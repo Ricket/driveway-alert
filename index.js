@@ -32,7 +32,7 @@ stdout.on('line', (line) => {
     console.log(line);
 
     const obj = JSON.parse(line);
-    if (obj['model'] !== 'MightyMule-FM231') {
+    if (obj['model'] !== 'MightyMule-FM231' || obj['data'] === 'ff8') {
         return;
     }
 
