@@ -16,7 +16,7 @@ function onDrivewayAlert(obj) {
     }
     slimbot.sendMessage(process.env['TELEGRAM_CHAT_ID'], message);
 }
-const throttledOnDrivewayAlert = _.throttle(onDrivewayAlert, 10000, {'trailing': false});
+const throttledOnDrivewayAlert = _.debounce(onDrivewayAlert, 5000, {'leading': true, 'trailing': false, 'maxWait': 30000});
 
 // spawn the radio process
 const { spawn } = require('child_process');
